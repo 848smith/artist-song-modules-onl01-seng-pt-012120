@@ -6,13 +6,10 @@ class Song
   
   extend Findable::ClassMethods
   extend Memorable::ClassMethods
+  include Memorable::InstanceMethods
   include Paramable
 
   @@songs = []
-
-  def initialize
-    @@songs << self
-  end
 
   def self.all
     @@songs
