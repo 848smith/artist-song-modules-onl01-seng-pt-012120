@@ -4,6 +4,7 @@ class Song
   attr_accessor :name
   attr_reader :artist
   
+  extend Findable
   extend Memorable
   include Paramable
 
@@ -11,10 +12,6 @@ class Song
 
   def initialize
     @@songs << self
-  end
-
-  def self.find_by_name(name)
-    @@songs.detect{|a| a.name == name}
   end
 
   def self.all
